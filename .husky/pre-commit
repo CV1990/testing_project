@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Formatea el código con Prettier y ajusta espacios y saltos de línea
+npx prettier --write "src/**/*.ts"
+
+# Lint con ESLint para detectar problemas como variables no usadas
+npx eslint "src/**/*.ts" --fix
+
+# Añade cambios formateados al commit
+git add .
